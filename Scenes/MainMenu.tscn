@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/title-card.webp" type="Texture" id=1]
 [ext_resource path="res://Assets/title_4.webp" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Assets/button_start.webp" type="Texture" id=7]
 [ext_resource path="res://Assets/button_start_over.webp" type="Texture" id=8]
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=9]
+[ext_resource path="res://audio/Super.ogg" type="AudioStream" id=10]
+[ext_resource path="res://audio/Dino Contagion Boss Edition.ogg" type="AudioStream" id=11]
+[ext_resource path="res://audio/click.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -78,12 +81,12 @@ tracks/5/path = NodePath("AnimTitulo/FX-Super:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [  ]
+"values": [ true ]
 }
 
 [node name="MainMenu" type="Node2D"]
@@ -100,17 +103,17 @@ autoplay = "New Anim"
 
 [node name="super" type="Sprite" parent="AnimTitulo"]
 position = Vector2( 501.67, 103.604 )
-scale = Vector2( 0.502569, 0.349192 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 4 )
 
 [node name="dino" type="Sprite" parent="AnimTitulo"]
 position = Vector2( 282.429, 160.333 )
-scale = Vector2( 0.525356, 0.379653 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 3 )
 
 [node name="contagion" type="Sprite" parent="AnimTitulo"]
 position = Vector2( 739.047, 168.908 )
-scale = Vector2( 0.38, 0.37 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 6 )
 
 [node name="boss" type="Sprite" parent="AnimTitulo"]
@@ -151,10 +154,13 @@ __meta__ = {
 }
 
 [node name="FX-Title" type="AudioStreamPlayer" parent="AnimTitulo"]
+stream = ExtResource( 11 )
 
 [node name="FX-Super" type="AudioStreamPlayer" parent="AnimTitulo"]
+stream = ExtResource( 10 )
 
 [node name="Fx-Click" type="AudioStreamPlayer" parent="AnimTitulo"]
+stream = ExtResource( 12 )
 
 [node name="Fx-Start" type="AudioStreamPlayer" parent="AnimTitulo"]
 
