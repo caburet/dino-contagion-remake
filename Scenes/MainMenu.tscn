@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/title-card.webp" type="Texture" id=1]
 [ext_resource path="res://Assets/title_4.webp" type="Texture" id=2]
@@ -8,10 +8,15 @@
 [ext_resource path="res://Assets/title_3.webp" type="Texture" id=6]
 [ext_resource path="res://Assets/button_start.webp" type="Texture" id=7]
 [ext_resource path="res://Assets/button_start_over.webp" type="Texture" id=8]
-[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=9]
 [ext_resource path="res://audio/Super.ogg" type="AudioStream" id=10]
 [ext_resource path="res://audio/Dino Contagion Boss Edition.ogg" type="AudioStream" id=11]
 [ext_resource path="res://audio/click.ogg" type="AudioStream" id=12]
+[ext_resource path="res://audio/musica_intro.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/button_settings.webp" type="Texture" id=14]
+[ext_resource path="res://Assets/button_settings_over.webp" type="Texture" id=15]
+[ext_resource path="res://Assets/button_close_over.webp" type="Texture" id=16]
+[ext_resource path="res://Assets/button_close.webp" type="Texture" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -81,11 +86,35 @@ tracks/5/path = NodePath("AnimTitulo/FX-Super:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = false
+tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 2,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimTitulo/FX-Title:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AnimTitulo/Fx-Musiquita:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
 "values": [ true ]
 }
 
@@ -103,27 +132,27 @@ autoplay = "New Anim"
 
 [node name="super" type="Sprite" parent="AnimTitulo"]
 position = Vector2( 501.67, 103.604 )
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 0.502569, 0.349192 )
 texture = ExtResource( 4 )
 
 [node name="dino" type="Sprite" parent="AnimTitulo"]
 position = Vector2( 282.429, 160.333 )
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 0.525356, 0.379653 )
 texture = ExtResource( 3 )
 
 [node name="contagion" type="Sprite" parent="AnimTitulo"]
 position = Vector2( 739.047, 168.908 )
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 0.38, 0.37 )
 texture = ExtResource( 6 )
 
 [node name="boss" type="Sprite" parent="AnimTitulo"]
-position = Vector2( 378.856, 260.786 )
-scale = Vector2( 1e-05, 1e-05 )
+position = Vector2( 310.675, 258.838 )
+scale = Vector2( 0.57, 0.47 )
 texture = ExtResource( 2 )
 
 [node name="edition" type="Sprite" parent="AnimTitulo"]
-position = Vector2( 762.328, 272.923 )
-scale = Vector2( 1e-05, 1e-05 )
+position = Vector2( 694.147, 270.975 )
+scale = Vector2( 0.635553, 0.474408 )
 texture = ExtResource( 5 )
 
 [node name="Start" type="TextureButton" parent="AnimTitulo"]
@@ -140,15 +169,27 @@ __meta__ = {
 }
 
 [node name="Settings" type="TextureButton" parent="AnimTitulo"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 929.205
+margin_top = 490.901
+margin_right = 1109.2
+margin_bottom = 657.901
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Close" type="TextureButton" parent="AnimTitulo"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 921.413
+margin_top = 3.89604
+margin_right = 1101.41
+margin_bottom = 182.896
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -165,6 +206,8 @@ stream = ExtResource( 12 )
 [node name="Fx-Start" type="AudioStreamPlayer" parent="AnimTitulo"]
 
 [node name="Fx-Musiquita" type="AudioStreamPlayer" parent="AnimTitulo"]
+stream = ExtResource( 13 )
+volume_db = -16.691
 [connection signal="pressed" from="AnimTitulo/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="AnimTitulo/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="AnimTitulo/Close" to="." method="_on_Close_pressed"]
