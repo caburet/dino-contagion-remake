@@ -8,6 +8,7 @@ var dinos_fixed = {}
 var modo_play = false
 var level_selected = 1
 var reload=false
+var max_level = 1
 
 func _ready():	
 	pass

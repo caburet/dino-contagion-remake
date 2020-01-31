@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/LevelSelector/boton_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/LevelSelector/boton_2.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Arial_dynamic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/BotonNivel.gd" type="Script" id=4]
+[ext_resource path="res://Assets/LevelSelector/Small Lock Door.png" type="Texture" id=5]
+[ext_resource path="res://audio/elevator-button-press.ogg" type="AudioStream" id=6]
+
+[node name="BotonNivel" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 375.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton"]
+margin_left = 114.157
+margin_top = 103.142
+margin_right = 197.157
+margin_bottom = 271.142
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TextureButton"]
+position = Vector2( 190.262, 180.248 )
+scale = Vector2( 2.16959, 2.42664 )
+texture = ExtResource( 5 )
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
