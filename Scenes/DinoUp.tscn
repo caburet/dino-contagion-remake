@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Dino.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/godot-dino-back.webp" type="Texture" id=4]
+
+[node name="Dino" instance=ExtResource( 3 )]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 8.80902, -173.243 )
+texture = ExtResource( 4 )
+
+[node name="Sombra" parent="Sprite" index="0"]
+position = Vector2( -7.55261, 173.71 )
+
+[node name="Moco" parent="Sprite" index="1"]
+position = Vector2( 64.9082, 12.3635 )
+z_index = -1
+
+[node name="Estornudo" parent="Sprite" index="2"]
+position = Vector2( 6.18176, -46.363 )
+rotation = 4.71239
+z_index = -1
